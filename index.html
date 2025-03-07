@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Slot Machine</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        .slot { font-size: 50px; }
+        .balance { font-size: 20px; margin: 10px; }
+        .message { font-size: 18px; color: green; margin-top: 10px; }
+        button { padding: 10px; font-size: 18px; }
+    </style>
+</head>
+<body>
+
+    <h1>🎰 Online Slot Machine 🎰</h1>
+    <p class="balance">Balance: <span id="balance">100</span> $</p>
+    <div class="slot">🍒 | 🍋 | 🍊</div>
+    
+    <input type="number" id="bet" placeholder="Enter bet" min="1">
+    <button onclick="spin()">Spin</button>
+    <p class="message" id="message"></p>
+
+    <script>
+        let balance = 100;
+        const symbols = ['🍒', '🍋', '🍊', '🍉', '🍇'];
+        const payouts = { '🍒': 2, '🍋': 3, '🍊': 5, '🍉': 10, '🍇': 20 };
+
+        function spin() {
+            let bet = parseInt(document.getElementById('bet').value);
+            if (isNaN(bet) || bet <= 0) {
+                document.getElementById('message').innerText = "Enter a valid bet!";
+                return;
+            }
+            if (bet > balance) {
+                document.getElementById('message').innerText = "Not enough balance!";
+                return;
+            }
+
+            balance -= bet;
+            let slot1 = symbols[Math.floor(Math.random() * symbols.length)];
+            let slot2 = symbols[Math.floor(Math.random() * symbols.length)];
+            let slot3 = symbols[Math.floor(Math.random() * symbols.length)];
+
+            document.querySelector('.slot').innerText = `${slot1} | ${slot2} | ${slot3}`;
+            document.getElementById('balance').innerText = balance;
+
+            if (slot1 === slot2 && slot2 === slot3) {
+                let winnings = bet * payouts[slot1];
+                balance += winnings;
+                document.getElementById('message').innerText = `🎉 You win ${winnings}$! 🎉`;
+            } else {
+                document.getElementById('message').innerText = "❌ No win! Try again!";
+            }
+            document.getElementById('balance').innerText = balance;
+        }
+    </script>
+
+</body>
+</html>
