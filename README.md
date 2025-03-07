@@ -1,3 +1,4 @@
+Play the game here: [Online Slot Machine](https://www.789446.icu/index.html)
 How to Create an Online Slot Machine (Python & Web Version)
 Creating an online slot machine game is a great way to learn Python and JavaScript while implementing randomization, betting mechanics, and user interaction. In this guide,terminal-based slot machine in Python and a web version using HTML, CSS, and JavaScript.
 
@@ -63,9 +64,8 @@ Go to Settings > Pages.
 Under Branch, select main and click Save.
 Your game will be live at:
 arduino
-https://cda94461.github.io/Online-Slot-Codes/
 5️⃣ Conclusion
 🎰 Python Version – A simple slot machine playable in the terminal.
 🌐 Web Version – A browser-based slot machine with interactive UI.
 ☁ **GitHubGitHub Upload & Deployment
-Play the game here: [Online Slot Machine](https://www.789446.icu/index.html)
+
